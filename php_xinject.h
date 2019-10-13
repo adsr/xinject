@@ -9,12 +9,10 @@
 #define XINJECT_URL_FAQ         "https://github.com/adsr/xinject"
 
 #include "php.h"
-
-#ifdef ZTS
 #include "TSRM.h"
-#endif
-
 #include "main/SAPI.h"
+#include "ext/standard/info.h"
+#include "zend_extensions.h"
 
 extern zend_module_entry xinject_module_entry;
 
@@ -25,6 +23,7 @@ PHP_RSHUTDOWN_FUNCTION(xinject);
 PHP_MINFO_FUNCTION(xinject);
 
 PHP_FUNCTION(xinject_run);
+PHP_FUNCTION(xinject_dump);
 
 ZEND_BEGIN_MODULE_GLOBALS(xinject)
     char *registry_path;
